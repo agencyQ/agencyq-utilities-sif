@@ -44,16 +44,6 @@ jobs:
           # The output method used to generate list of users, 'csv' or 'json'.
           user_format_type: "csv"
 
-      - name: Create ZIP archive
-        run: |
-          zip -r agencyq-utilities-sif.zip . -x ".gitignore" -x ".git/*" -x ".github/*"
-
-      - name: Upload ZIP archive
-        uses: actions/upload-artifact@v2
-        with:
-          name: agencyq-utilities-sif.zip
-          path: agencyq-utilities-sif.zip
-
       - name: Tag Release (vX.Y.Z)
         run: |
           git tag ${{ steps.tag_version.outputs.version_tag }}
