@@ -1,0 +1,1075 @@
+{
+  "Parameters": {
+    "Package": {
+      "Type": "string",
+      "Description": "The path to the Web Deploy package to deploy."
+    },
+    "LicenseFile": {
+      "Type": "string",
+      "Description": "The path to the Sitecore license file."
+    },
+    "Prefix": {
+      "Type": "String",
+      "DefaultValue": "SC910",
+      "Description": "The prefix for uniquely identifying instances."
+    },
+    "SSLCert": {
+      "Type": "string",
+      "Description": "The certificate to use for HTTPS web bindings. Provide the name or the thumbprint. If not provided a certificate will be generated.",
+      "DefaultValue": ""
+    },
+    "SiteName": {
+      "Type": "string",
+      "DefaultValue": "SitecoreXM1CM",
+      "Description": "The name of the site to be deployed."
+    },
+    "IdentityServerSiteName": {
+      "Type": "string",
+      "DefaultValue": "SitecoreXM1ID",
+      "Description": "The name of the Identity Server site to be deployed."
+    },
+    "SitecoreAdminPassword": {
+      "Type": "string",
+      "DefaultValue": "b",
+      "Description": "The admin password for the Sitecore instance."
+    },
+    "SqlAdminUser": {
+      "Type": "string",
+      "DefaultValue": "sa",
+      "Description": "The Sql admin user account to use when installing databases."
+    },
+    "SqlAdminPassword": {
+      "Type": "string",
+      "DefaultValue": "12345",
+      "Description": "The Sql admin password to use when installing databases."
+    },
+    "SqlCoreUser": {
+      "Type": "string",
+      "DefaultValue": "coreuser",
+      "Description": "The user to create and use in Core connection string."
+    },
+    "SqlCorePassword": {
+      "Type": "string",
+      "DefaultValue": "SIF-Default12345!",
+      "Description": "The Sql password for the Core connection string in Sitecore."
+    },
+    "SqlMasterUser": {
+      "Type": "string",
+      "DefaultValue": "masteruser",
+      "Description": "The user to create and use in Master connection string."
+    },
+    "SqlMasterPassword": {
+      "Type": "string",
+      "DefaultValue": "SIF-Default12345!",
+      "Description": "The Sql password for the Master connection string in Sitecore."
+    },
+    "SqlSecurityUser": {
+      "Type": "string",
+      "DefaultValue": "securityuser",
+      "Description": "The Sql user for the Security connection string in Sitecore."
+    },
+    "SqlSecurityPassword": {
+      "Type": "string",
+      "DefaultValue": "SIF-Default12345",
+      "Description": "The Sql password for the Security connection string in Sitecore."
+    },
+    "SqlWebUser": {
+      "Type": "string",
+      "DefaultValue": "webuser",
+      "Description": "The user to create and use in Web connection string."
+    },
+    "SqlWebPassword": {
+      "Type": "string",
+      "DefaultValue": "SIF-Default12345!",
+      "Description": "The Sql password for the Web connection string in Sitecore."
+    },
+    "SqlFormsUser": {
+      "Type": "string",
+      "DefaultValue": "formsuser",
+      "Description": "The user to create and use in Experience Forms connection string."
+    },
+    "SqlFormsPassword": {
+      "Type": "string",
+      "DefaultValue": "SIF-Default12345!",
+      "Description": "The Sql password for the Experience Forms connection string in Sitecore."
+    },
+    "SqlServer": {
+      "Type": "string",
+      "DefaultValue": "localhost",
+      "Description": "The Sql Server where databases will be installed."
+    },
+    "SolrUrl": {
+      "Type": "String",
+      "DefaultValue": "https://localhost:8983/solr",
+      "Description": "The Solr instance to use."
+    },
+    "SolrRoot": {
+      "Type": "String",
+      "DefaultValue": "C:\\solr-8.11.2",
+      "Description": "The file path to the Solr instance."
+    },
+    "SolrService": {
+      "Type": "String",
+      "DefaultValue": "Solr-8.11.2",
+      "Description": "The name of the Solr service."
+    },
+    "TelerikEncryptionKey": {
+      "Type": "string",
+      "DefaultValue": "PutYourCustomEncryptionKeyHereFrom32To256CharactersLong",
+      "Description": "The key to be used by Telerik controls to encrypt interaction with Content Editors. It's a random string between 32 and 256 symbols long."
+    },
+    "Update": {
+      "Type": "bool",
+      "Description": "The parameter for the installing delta WDP packages.",
+      "DefaultValue": false
+    },
+    "CertificateName": {
+      "Type": "String",
+      "Description": "The name of the certificate to be created.",
+      "DefaultValue": "agencyq.dev"
+    },
+    "CertPath": {
+      "Type": "String",
+      "Description": "The physical path on disk where certificates will be stored.",
+      "DefaultValue": "C:\\certificates"
+    },
+    "RootCertFileName": {
+      "Type": "String",
+      "Reference": "IdentityServerSiteName"
+    },
+    "ExportPassword": {
+      "Type": "String",
+      "Description": "Password to export certificates with.",
+      "DefaultValue": "SIF-Default"
+    },
+    "SitecoreSolr:SolrUrl": {
+      "Type": "String",
+      "Reference": "SolrUrl",
+      "Description": "Override to pass SolrURL value to SitecoreSolr config."
+    },
+    "SitecoreSolr:SolrRoot": {
+      "Type": "String",
+      "Reference": "SolrRoot",
+      "Description": "Override to pass SolrRoot value to SitecoreSolr config."
+    },
+    "SitecoreSolr:SolrService": {
+      "Type": "String",
+      "Reference": "SolrService",
+      "Description": "Override to pass SolrService value to SitecoreSolr config."
+    },
+    "SitecoreSolr:CorePrefix": {
+      "Type": "String",
+      "Reference": "Prefix",
+      "Description": "Override to pass Prefix value to SitecoreSolr config."
+    },
+    "SitecoreSolr:Update": {
+      "Type": "bool",
+      "Reference": "Update",
+      "Description": "Override to pass Update value to SitecoreSolr config."
+    },
+    "SqlDbPrefix": {
+      "Type": "string",
+      "Reference": "Prefix",
+      "Description": "The prefix used for all Sql databases."
+    },
+    "SolrCorePrefix": {
+      "Type": "string",
+      "Reference": "Prefix",
+      "Description": "The prefix used for all Solr cores."
+    },
+    "PasswordRecoveryUrl": {
+      "Type": "string",
+      "Description": "Password recovery Url (Host name of CM instance).",
+      "DefaultValue": "http:\\"
+    },
+    "ClientsConfiguration": {
+      "Type": "string",
+      "DefaultValue": "",
+      "Description": "Sitecore IdentityServer clients configuration"
+    },
+    "AllowedCorsOrigins": {
+      "Type": "string",
+      "Description": "Pipe-separated list of instances (URIs) that are allowed to login via Sitecore Identity.",
+      "DefaultValue": ""
+    },
+    "ClientSecret": {
+      "Type": "string",
+      "Description": "Client secret of PasswordClient section. It's a random string between 1 and 100 symbols long.",
+      "DefaultValue": "IdentityServerClientSecret"
+    },
+    "SXAPackage": {
+      "Type": "String",
+      "DefaultValue": "",
+      "Description": "The path to the Sitecore Experience Accelerator package to deploy."
+    },
+    "SPEPackage": {
+      "Type": "String",
+      "DefaultValue": "",
+      "Description": "The path to the Sitecore Powershell Extensions package to deploy."
+    },
+    "HeadlessPackage": {
+      "Type": "String",
+      "DefaultValue": "",
+      "Description": "The path to the Sitecore Powershell Extensions package to deploy."
+    },
+    "ManagementPackage": {
+      "Type": "String",
+      "DefaultValue": "",
+      "Description": "The path to the Management Services package to deploy."
+    },
+    "IdentityPackage": {
+      "Type": "String",
+      "DefaultValue": "",
+      "Description": "The path to the Management Services package to deploy."
+    },
+    "SXA:SiteName": {
+      "Type": "String",
+      "Reference": "SiteName",
+      "Description": "Override to pass SiteName value to SXA config."
+    },
+    "SPE:SiteName": {
+      "Type": "String",
+      "Reference": "SiteName",
+      "Description": "Override to pass SiteName value to SPE config."
+    },
+    "Headless:SiteName": {
+      "Type": "String",
+      "Reference": "SiteName",
+      "Description": "Override to pass SiteName value to SPE config."
+    },
+    "SXA:Package": {
+      "Type": "String",
+      "Reference": "SXAPackage",
+      "Description": "Override to pass SXAPackage value to SXA config."
+    },
+    "SPE:Package": {
+      "Type": "String",
+      "Reference": "SPEPackage",
+      "Description": "Override to pass SPEPackage value to SPE config."
+    },
+    "SPE:SQLServer": {
+      "Type": "String",
+      "Reference": "SQLServer",
+      "Description": "Override to pass SQLServer value to SPE config."
+    },
+    "Headless:Package": {
+      "Type": "String",
+      "Reference": "HeadlessPackage",
+      "Description": "Override to pass SPEPackage value to SPE config."
+    },
+    "Headless:SQLServer": {
+      "Type": "String",
+      "Reference": "SQLServer",
+      "Description": "Override to pass SQLServer value to SPE config."
+    },
+    "SXA:SQLServer": {
+      "Type": "String",
+      "Reference": "SQLServer",
+      "Description": "Override to pass SQLServer value to SXA config."
+    },
+    "SXA:SqlAdminPassword": {
+      "Type": "String",
+      "Reference": "SqlAdminPassword",
+      "Description": "Override to pass SqlAdminPassword value to SXA config."
+    },
+    "SPE:SqlAdminPassword": {
+      "Type": "String",
+      "Reference": "SqlAdminPassword",
+      "Description": "Override to pass SqlAdminPassword value to SPE config."
+    },
+    "Headless:SqlAdminPassword": {
+      "Type": "String",
+      "Reference": "SqlAdminPassword",
+      "Description": "Override to pass SqlAdminPassword value to SPE config."
+    },
+    "SXA:SqlAdminUser": {
+      "Type": "String",
+      "Reference": "SqlAdminUser",
+      "Description": "Override to pass SqlAdminUser value to SXA config."
+    },
+    "SPE:SqlAdminUser": {
+      "Type": "String",
+      "Reference": "SqlAdminUser",
+      "Description": "Override to pass SqlAdminUser value to SPE config."
+    },
+    "Headless:SqlAdminUser": {
+      "Type": "String",
+      "Reference": "SqlAdminUser",
+      "Description": "Override to pass SqlAdminUser value to SPE config."
+    },
+    "SXA:SqlDbPrefix": {
+      "Type": "String",
+      "Reference": "Prefix",
+      "Description": "Override to pass Prefix value to SXA config."
+    },
+    "SPE:SqlDbPrefix": {
+      "Type": "String",
+      "Reference": "Prefix",
+      "Description": "Override to pass Prefix value to SPE config."
+    },
+    "Headless:SqlDbPrefix": {
+      "Type": "String",
+      "Reference": "Prefix",
+      "Description": "Override to pass Prefix value to SPE config."
+    },
+
+    "SXA:SolrCorePrefix": {
+      "Type": "String",
+      "Reference": "Prefix",
+      "Description": "Override to pass Prefix value to SXA config."
+    },
+    "SXA:SitecoreAdminPassword": {
+      "Type": "String",
+      "Reference": "SitecoreAdminPassword",
+      "Description": "Override to pass SitecoreAdminPassword value to SXA config."
+    },
+    "SXASolr:CorePrefix": {
+      "Type": "String",
+      "Reference": "Prefix",
+      "Description": "Override to pass Prefix value to Solr config."
+    },
+    "SXASolr:SolrUrl": {
+      "Type": "String",
+      "Reference": "SolrUrl",
+      "Description": "Override to pass SolrUrl to Solr config."
+    },
+    "SXASolr:SolrService": {
+      "Type": "String",
+      "Reference": "SolrService",
+      "Description": "Override to pass SolrService to Solr config."
+    },
+    "SXASolr:SolrRoot": {
+      "Type": "String",
+      "Reference": "SolrRoot",
+      "Description": "Override to pass SolrRoot to Solr config."
+    }
+  },
+  "Variables": {
+    "Sql.Database.Core": "[concat(parameter('SqlDbPrefix'), '_Core')]",
+    "Sql.Database.Master": "[concat(parameter('SqlDbPrefix'), '_Master')]",
+    "Sql.Database.Web": "[concat(parameter('SqlDbPrefix'), '_Web')]",
+    "Sql.Database.Forms": "[concat(parameter('SqlDbPrefix'), '_ExperienceForms')]",
+
+    "Sql.Secure.Password": "[ConvertToSecureString(String:parameter('SqlAdminPassword'),AsPlainText:true,Force:true)]",
+    "Solr.Core.Name": "[concat(parameter('SolrCorePrefix'), '_core_index')]",
+    "Solr.Master.Name": "[concat(parameter('SolrCorePrefix'), '_master_index')]",
+    "Solr.Web.Name": "[concat(parameter('SolrCorePrefix'), '_web_index')]",
+    "Solr.MD.Master.Name": "[concat(parameter('SolrCorePrefix'), '_marketingdefinitions_master')]",
+    "Solr.MD.Web.Name": "[concat(parameter('SolrCorePrefix'), '_marketingdefinitions_web')]",
+    "Solr.MA.Master.Name": "[concat(parameter('SolrCorePrefix'), '_marketing_asset_index_master')]",
+    "Solr.MA.Web.Name": "[concat(parameter('SolrCorePrefix'), '_marketing_asset_index_web')]",
+    "Solr.Testing.Name": "[concat(parameter('SolrCorePrefix'), '_testing_index')]",
+    "Solr.Suggested.Name": "[concat(parameter('SolrCorePrefix'), '_suggested_test_index')]",
+    "Solr.FXM.Master.Name": "[concat(parameter('SolrCorePrefix'), '_fxm_master_index')]",
+    "Solr.FXM.Web.Name": "[concat(parameter('SolrCorePrefix'), '_fxm_web_index')]",
+
+    "Security.CertificateStore": "cert:\\localmachine\\my",
+    "Security.SSL.CertificateThumbprint": "[GetCertificateThumbprint(parameter('SSLCert'), variable('Security.CertificateStore'))]",
+
+    "Site.PhysicalPath": "[joinpath(environment('SystemDrive'), 'inetpub', 'wwwroot', parameter('SiteName'))]",
+    "IdentitySite.PhysicalPath": "[joinpath(environment('SystemDrive'), 'inetpub', 'wwwroot', parameter('IdentityServerSiteName'))]",
+
+    "Site.DataFolder": "[joinpath(variable('Site.PhysicalPath'), 'App_Data')]",
+
+    "Root.Cert.DnsName": "[concat('DO_NOT_TRUST_', parameter('RootCertFileName'))]",
+    "Root.Cert.Store": "cert:\\localmachine\\root",
+    "Client.Cert.Store": "cert:\\localmachine\\my",
+    "Export.Password": "[if(variable('User.Supplied.Password'),variable('Secure.Password'),variable('Convert.User.Password'))]",
+    "User.Supplied.Password": "[equal(parameter('ExportPassword'),'SIF-Default')]",
+    "Secure.Password": "[ConvertToSecureString(String:variable('Password.String'),AsPlainText:true,Force:true)]",
+    "Password.String": "[RandomString(Length:20,EnforceComplexity:True)]",
+    "Convert.User.Password": "[ConvertToSecureString(String:parameter('ExportPassword'),AsPlainText:true,Force:true)]",
+
+    "Security.IdentityServer.CertificateThumbprint": "[GetCertificateThumbprint(parameter('RootCertFileName'), variable('Security.CertificateStore'))]",
+    "Security.IdentityServer.CertificatePath": "[joinpath(variable('Security.CertificateStore'), variable('Security.IdentityServer.CertificateThumbprint'))]",
+
+    "Sql.Security.Database.Name": "[variable('Sql.Database.Core')]",
+    "Sql.Security.Connection.String": "[concat('Data Source=', parameter('SqlServer'), ';Initial Catalog=', variable('Sql.Security.Database.Name'), ';User ID=', parameter('SqlSecurityUser'), ';Password=', parameter('SqlSecurityPassword'))]",
+
+    "Client.Secret": "[parameter('ClientSecret'))]",
+
+    "IdentitySite.LicenseFolder": "[joinpath(variable('IdentitySite.PhysicalPath'), 'sitecoreruntime')]",
+    "IdentitySite.ConfigFolder": "[joinpath(variable('IdentitySite.PhysicalPath'), 'Config', 'production')]",
+    "IdentitySite.Url": "[concat('https://', parameter('IdentityServerSiteName'))]"
+  },
+
+  "Includes": {
+    "SitecoreSolr": {
+      "Source": ".\\Sitecore-solr.json"
+    },
+    "headless": {
+      "Source": ".\\headless-XM0.json"
+    },
+    "SPE": {
+      "Source": ".\\spe.json"
+    },
+    "SXASolr": {
+      "Source": ".\\sxa-solr.json"
+    },
+    "SXA": {
+      "Source": ".\\sxa-XM0.json"
+    }
+  },
+  "Register": {
+    "Tasks": {
+      "RemoveItem": "Remove-Item",
+      "WriteInformation": "Write-Information",
+      "InvokeSqlcmd": "Invoke-Sqlcmd"
+    },
+    "ConfigFunction": {
+      "ConvertToSecureString": "ConvertTo-SecureString",
+      "TestPath": "Test-Path",
+      "SelectObject": "Select-Object",
+      "SplitPath": "Split-Path",
+      "GetVariable": "Get-Variable"
+    }
+  },
+  "Tasks": {
+    "CreateCertPaths": {
+      "Description": "Create the physical disk path.",
+      "Type": "EnsurePath",
+      "Params": {
+        "Exists": ["[parameter('CertPath')]"]
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "DisplayPassword": {
+      "Description": "Print password if the user hasn't supplied their own.",
+      "Type": "WriteInformation",
+      "Params": {
+        "Messagedata": "[concat('Certificate Password: ',variable('Password.String'))]",
+        "InformationAction": "Continue"
+      },
+      "Skip": "[or(not(variable('User.Supplied.Password')),parameter('Update'))]"
+    },
+    "CreateRootCert": {
+      "Description": "Create the root certificate.",
+      "Type": "NewRootCertificate",
+      "Params": {
+        "Path": "[parameter('CertPath')]",
+        "Name": "[parameter('RootCertFileName')]",
+        "DnsName": ["[variable('Root.Cert.DnsName')]", "127.0.0.1"],
+        "IncludePrivateKey": true,
+        "Password": "[variable('Export.Password')]"
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "CreateSignedCert": {
+      "Description": "Create a certificate signed by the root authority.",
+      "Type": "NewSignedCertificate",
+      "Params": {
+        "Signer": "[GetCertificate(variable('Root.Cert.DnsName'), variable('Root.Cert.Store'))]",
+        "Path": "[parameter('CertPath')]",
+        "CertStoreLocation": "[variable('Client.Cert.Store')]",
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "DnsName": ["[parameter('IdentityServerSiteName')]", "127.0.0.1"],
+        "IncludePrivateKey": true,
+        "Password": "[variable('Export.Password')]"
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "CreateIdentityServerPaths": {
+      "Description": "Ensure the destination path for the site exists.",
+      "Type": "EnsurePath",
+      "Params": {
+        "Exists": ["[variable('IdentitySite.PhysicalPath')]"]
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "CreateIdentityServerAppPool": {
+      "Description": "Creates or updates the app pool.",
+      "Type": "AppPool",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "Properties": {
+          "ProcessModel": {
+            "identityType": "ApplicationPoolIdentity",
+            "idleTimeoutAction": "Suspend",
+            "loadUserProfile": "True"
+          },
+          "ManagedRuntimeVersion": ""
+        }
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "SetAppPoolCertStorePermissions": {
+      "Description": "Set permissions for the App Pool User to access the client certificate.",
+      "Type": "FilePermissions",
+      "Params": {
+        "Path": "[ResolveCertificatePath(variable('Security.IdentityServer.CertificatePath'))]",
+        "Rights": [
+          {
+            "User": "[concat('IIS AppPool\\', parameter('IdentityServerSiteName'))]",
+            "FileSystemRights": ["Read"],
+            "InheritanceFlags": ["None"]
+          }
+        ]
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "CreateIdentityServerWebsite": {
+      "Description": "Creates or updates the IIS website instance.",
+      "Type": "Website",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "ApplicationPool": "[parameter('IdentityServerSiteName')]",
+        "PhysicalPath": "[variable('IdentitySite.PhysicalPath')]"
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "StopIdentityServerWebsite": {
+      "Description": "Stops the website if it is running.",
+      "Type": "ManageWebsite",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "Action": "Stop"
+      }
+    },
+    "StopIdentityServerAppPool": {
+      "Description": "Stops the app pool if it is running.",
+      "Type": "ManageAppPool",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "Action": "Stop"
+      }
+    },
+    "CreateRegistryStorageForAppPool": {
+      "Description": "Provisions the HKLM registry so that the specified user account can persist auto-generated machine keys.",
+      "Type": "ManageKeyStorage",
+      "Params": {
+        "AppPoolName": "[parameter('IdentityServerSiteName')]",
+        "Action": "Create"
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "RemoveIdentityServerDefaultBinding": {
+      "Description": "Removes the default *:80 web binding.",
+      "Type": "WebBinding",
+      "Params": {
+        "SiteName": "[parameter('IdentityServerSiteName')]",
+        "Remove": [{ "Port": "80", "IPAddress": "*" }]
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "CreateIdentityServerBindingsWithThumbprint": {
+      "Type": "WebBinding",
+      "Params": {
+        "SiteName": "[parameter('IdentityServerSiteName')]",
+        "Add": [
+          {
+            "HostHeader": "[parameter('IdentityServerSiteName')]",
+            "Protocol": "https",
+            "SSLFlags": 1,
+            "Thumbprint": "[variable('Security.SSL.CertificateThumbprint')]"
+          }
+        ]
+      },
+      "Skip": "[not(parameter('SSLCert'))]"
+    },
+    "CreateIdentityHostHeader": {
+      "Description": "Sets a hostheader for the website.",
+      "Type": "HostHeader",
+      "Params": {
+        "HostName": "[parameter('IdentityServerSiteName')]"
+      },
+      "Skip": "[or(not(parameter('IdentityServerSiteName')),parameter('Update'))]"
+    },
+    "SetIdentityPermissions": {
+      "Description": "Sets permissions for the app pool user.",
+      "Type": "FilePermissions",
+      "Params": {
+        "Path": "[variable('IdentitySite.PhysicalPath')]",
+        "Rights": [
+          {
+            "User": "[concat('IIS AppPool\\', parameter('IdentityServerSiteName'))]",
+            "FileSystemRights": "FullControl",
+            "InheritanceFlags": ["ContainerInherit", "ObjectInherit"]
+          }
+        ]
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "InstallIDentityWDP": {
+      "Description": "Syncs the web deploy package with the website.",
+      "Type": "WebDeploy",
+      "Params": {
+        "Verb": "Sync",
+        "Arguments": {
+          "Source": {
+            "Package": "[resolvepath(parameter('IdentityPackage'))]"
+          },
+          "Dest": "Auto",
+          "enableRule": "DoNotDeleteRule",
+          "SetParam": [
+            {
+              "Name": "IIS Web Application Name",
+              "Value": "[parameter('IdentityServerSiteName')]"
+            },
+            {
+              "Name": "Security Connection String",
+              "Value": "[variable('Sql.Security.Connection.String')]"
+            },
+            {
+              "Name": "CertificateThumbprint",
+              "Value": "[variable('Security.IdentityServer.CertificateThumbprint')]"
+            },
+            {
+              "Name": "PasswordRecoveryUrl",
+              "Value": "[parameter('PasswordRecoveryUrl')]"
+            },
+            {
+              "Name": "AllowedCorsOrigins",
+              "Value": "[parameter('AllowedCorsOrigins')]"
+            },
+            { "Name": "ClientSecret", "Value": "[variable('Client.Secret')]" }
+          ]
+        }
+      }
+    },
+    "CreateLicenseFolder": {
+      "Description": "Ensure the destination path for the license exists.",
+      "Type": "EnsurePath",
+      "Params": {
+        "Exists": ["[variable('IdentitySite.LicenseFolder')]"]
+      },
+      "Skip": "[parameter('Update')]"
+    },
+    "SetIdentityLicense": {
+      "Description": "Copies the license file to the instance license folder.",
+      "Type": "Copy",
+      "Params": {
+        "Source": "[resolvepath(parameter('LicenseFile'))]",
+        "Destination": "[variable('IdentitySite.LicenseFolder')]"
+      },
+      "Skip": "[or(not(parameter('LicenseFile')),parameter('Update'))]"
+    },
+    "StartIdentityAppPool": {
+      "Description": "Starts the app pool.",
+      "Type": "ManageAppPool",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "Action": "Start"
+      }
+    },
+    "StartIdentityWebsite": {
+      "Description": "Starts the website.",
+      "Type": "ManageWebsite",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "Action": "Start"
+      }
+    },
+
+    "CreatePaths": {
+      "Type": "EnsurePath",
+      "Params": {
+        "Exists": ["[variable('Site.PhysicalPath')]"]
+      }
+    },
+    "CreateAppPool": {
+      "Type": "AppPool",
+      "Params": {
+        "Name": "[parameter('SiteName')]",
+        "Properties": {
+          "ProcessModel": {
+            "identityType": "ApplicationPoolIdentity"
+          }
+        }
+      }
+    },
+    "CreateWebsite": {
+      "Type": "Website",
+      "Params": {
+        "Name": "[parameter('SiteName')]",
+        "ApplicationPool": "[parameter('SiteName')]",
+        "PhysicalPath": "[variable('Site.PhysicalPath')]"
+      }
+    },
+    "StopWebsite": {
+      "Type": "ManageWebsite",
+      "Params": {
+        "Name": "[parameter('SiteName')]",
+        "Action": "Stop"
+      }
+    },
+    "StopAppPool": {
+      "Type": "ManageAppPool",
+      "Params": {
+        "Name": "[parameter('SiteName')]",
+        "Action": "Stop"
+      }
+    },
+    "RemoveDefaultBinding": {
+      "Type": "WebBinding",
+      "Params": {
+        "SiteName": "[parameter('SiteName')]",
+        "Remove": [{ "Port": "80", "IPAddress": "*" }]
+      }
+    },
+    "CreateBindingsWithThumprint": {
+      "Type": "WebBinding",
+      "Params": {
+        "SiteName": "[parameter('SiteName')]",
+        "Add": [
+          {
+            "HostHeader": "[parameter('SiteName')]",
+            "Protocol": "https",
+            "SSLFlags": 1,
+            "Thumbprint": "[variable('Security.SSL.CertificateThumbprint')]"
+          }
+        ]
+      },
+      "Skip": "[not(parameter('SSLCert'))]"
+    },
+    "CreateHostHeader": {
+      "Type": "HostHeader",
+      "Params": {
+        "HostName": "[parameter('SiteName')]"
+      }
+    },
+    "SetPermissions": {
+      "Type": "FilePermissions",
+      "Params": {
+        "Path": "[variable('Site.PhysicalPath')]",
+        "Rights": [
+          {
+            "User": "[concat('IIS AppPool\\', parameter('SiteName'))]",
+            "FileSystemRights": "FullControl",
+            "InheritanceFlags": ["ContainerInherit", "ObjectInherit"]
+          }
+        ]
+      }
+    },
+    "InstallWDP": {
+      "Type": "WebDeploy",
+      "Params": {
+        "Verb": "Sync",
+        "Arguments": {
+          "Source": {
+            "Package": "[resolvepath(parameter('Package'))]"
+          },
+          "Dest": "Auto",
+          "SetParam": [
+            { "Name": "Application Path", "Value": "[parameter('SiteName')]" },
+            {
+              "Name": "Database Server Name",
+              "Value": "[parameter('SqlServer')]"
+            },
+            {
+              "Name": "Sitecore Admin New Password",
+              "Value": "[parameter('SitecoreAdminPassword')]"
+            },
+            {
+              "Name": "Database Admin User Name",
+              "Value": "[parameter('SqlAdminUser')]"
+            },
+            {
+              "Name": "Database Admin User Password",
+              "Value": "[parameter('SqlAdminPassword')]"
+            },
+            {
+              "Name": "Core DB Name",
+              "Value": "[variable('Sql.Database.Core')]"
+            },
+            {
+              "Name": "Security DB Name",
+              "Value": "[variable('Sql.Database.Core')]"
+            },
+            {
+              "Name": "Master DB Name",
+              "Value": "[variable('Sql.Database.Master')]"
+            },
+            {
+              "Name": "Web DB Name",
+              "Value": "[variable('Sql.Database.Web')]"
+            },
+            {
+              "Name": "Experience Forms DB Name",
+              "Value": "[variable('Sql.Database.Forms')]"
+            },
+            {
+              "Name": "Core DB User Name",
+              "Value": "[parameter('SqlCoreUser')]"
+            },
+            {
+              "Name": "Core DB User Password",
+              "Value": "[parameter('SqlCorePassword')]"
+            },
+            {
+              "Name": "Security DB User Name",
+              "Value": "[parameter('SqlSecurityUser')]"
+            },
+            {
+              "Name": "Security DB User Password",
+              "Value": "[parameter('SqlSecurityPassword')]"
+            },
+            {
+              "Name": "Master DB User Name",
+              "Value": "[parameter('SqlMasterUser')]"
+            },
+            {
+              "Name": "Master DB User Password",
+              "Value": "[parameter('SqlMasterPassword')]"
+            },
+            {
+              "Name": "Web DB User Name",
+              "Value": "[parameter('SqlWebUser')]"
+            },
+            {
+              "Name": "Web DB User Password",
+              "Value": "[parameter('SqlWebPassword')]"
+            },
+            {
+              "Name": "Experience Forms DB User Name",
+              "Value": "[parameter('SqlFormsUser')]"
+            },
+            {
+              "Name": "Experience Forms DB User Password",
+              "Value": "[parameter('SqlFormsPassword')]"
+            },
+            {
+              "Name": "SOLR Connection String",
+              "Value": "[parameter('SolrUrl')]"
+            },
+            {
+              "Name": "Solr Core Index Name",
+              "Value": "[variable('Solr.Core.Name')]"
+            },
+            {
+              "Name": "Solr Master Index Name",
+              "Value": "[variable('Solr.Master.Name')]"
+            },
+            {
+              "Name": "Solr Web Index Name",
+              "Value": "[variable('Solr.Web.Name')]"
+            },
+            {
+              "Name": "Solr Marketing Definitions Master Index Name",
+              "Value": "[variable('Solr.MD.Master.Name')]"
+            },
+            {
+              "Name": "Solr Marketing Definitions Web Index Name",
+              "Value": "[variable('Solr.MD.Web.Name')]"
+            },
+            {
+              "Name": "Solr Marketing Asset Master Index Name",
+              "Value": "[variable('Solr.MA.Master.Name')]"
+            },
+            {
+              "Name": "Solr Marketing Asset Web Index Name",
+              "Value": "[variable('Solr.MA.Web.Name')]"
+            },
+            {
+              "Name": "Solr Testing Index Name",
+              "Value": "[variable('Solr.Testing.Name')]"
+            },
+            {
+              "Name": "Solr Suggested Index Name",
+              "Value": "[variable('Solr.Suggested.Name')]"
+            },
+            {
+              "Name": "Solr FXM Master Index Name",
+              "Value": "[variable('Solr.FXM.Master.Name')]"
+            },
+            {
+              "Name": "Solr FXM Web Index Name",
+              "Value": "[variable('Solr.FXM.Web.Name')]"
+            },
+            {
+              "Name": "Telerik Encryption Key",
+              "Value": "[parameter('TelerikEncryptionKey')]"
+            },
+            {
+              "Name": "Sitecore Identity Authority",
+              "Value": "[variable('IdentitySite.Url')]"
+            },
+            {
+              "Name": "Sitecore Identity Secret",
+              "Value": "[variable('Client.Secret')]"
+            }
+          ]
+        }
+      }
+    },
+    "InstallManagementWDP": {
+      "Description": "Syncs the web deploy package with the website.",
+      "Type": "WebDeploy",
+      "Params": {
+        "Verb": "Sync",
+        "Arguments": {
+          "Source": {
+            "Package": "[resolvepath(parameter('ManagementPackage'))]"
+          },
+          "Dest": "Auto",
+          "enableRule": "DoNotDeleteRule",
+          "SetParam": [
+            { "Name": "Application Path", "Value": "[parameter('SiteName')]" }
+          ]
+        }
+      }
+    },
+    "CreateBindingsWithDevelopmentThumprint": {
+      "Type": "AddWebFeatureSSL",
+      "Params": {
+        "HostName": "[parameter('SiteName')]",
+        "OutputDirectory": "[variable('Site.DataFolder')]"
+      },
+      "Skip": "[parameter('SSLCert')]"
+    },
+    "SetLicense": {
+      "Type": "Copy",
+      "Params": {
+        "Source": "[resolvepath(parameter('LicenseFile'))]",
+        "Destination": "[variable('Site.DataFolder')]"
+      }
+    },
+    "SetRole": {
+      "Type": "SetXml",
+      "Params": {
+        "FilePath": "[joinpath(variable('Site.PhysicalPath'), 'Web.config')]",
+        "XPath": "//configuration/appSettings/add[@key='role:define']",
+        "Attributes": [{ "value": "Standalone" }]
+      }
+    },
+    "StartAppPool": {
+      "Type": "ManageAppPool",
+      "Params": {
+        "Name": "[parameter('SiteName')]",
+        "Action": "Start"
+      }
+    },
+    "StartWebsite": {
+      "Type": "ManageWebsite",
+      "Params": {
+        "Name": "[parameter('SiteName')]",
+        "Action": "Start"
+      }
+    },
+    "UpdateSolrSchema": {
+      "Type": "SitecoreUrl",
+      "Params": {
+        "SitecoreInstanceRoot": "[concat('https://', parameter('SiteName'))]",
+        "SitecoreActionPath": "sitecore/admin/PopulateManagedSchema.aspx?indexes=all",
+        "UserName": "admin",
+        "Password": "[parameter('SitecoreAdminPassword')]"
+      }
+    }
+  },
+  "UninstallTasks": {
+    "StopWebsite": {
+      "Description": "Stops the website if it is running.",
+      "Type": "ManageWebsite",
+      "Params": {
+        "Name": "[parameter('SiteName')]",
+        "Action": "Stop",
+        "ErrorAction": "SilentlyContinue"
+      }
+    },
+    "StopAppPool": {
+      "Description": "Stops the app pool if it is running.",
+      "Type": "ManageAppPool",
+      "Params": {
+        "Name": "[parameter('SiteName')]",
+        "Action": "Stop",
+        "ErrorAction": "SilentlyContinue"
+      }
+    },
+    "RemoveWebsite": {
+      "Description": "Removes the IIS website.",
+      "Type": "RemoveWebsite",
+      "Params": {
+        "Name": "[parameter('SiteName')]"
+      }
+    },
+    "RemoveAppPool": {
+      "Description": "Removes the IIS application pool.",
+      "Type": "RemoveAppPool",
+      "Params": {
+        "Name": "[parameter('SiteName')]"
+      }
+    },
+    "RemoveContent": {
+      "Description": "Removes website content.",
+      "Type": "RemoveItem",
+      "Params": {
+        "Path": "[variable('Site.PhysicalPath')]",
+        "Recurse": true,
+        "ErrorAction": "SilentlyContinue"
+      }
+    },
+    "RemoveHostHeader": {
+      "Description": "Removes the website host name.",
+      "Type": "HostHeader",
+      "Params": {
+        "HostName": "[parameter('SiteName')]",
+        "Action": "Remove"
+      }
+    },
+
+    "StopIdentityWebsite": {
+      "Description": "Stops the website if it is running.",
+      "Type": "ManageWebsite",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "Action": "Stop",
+        "ErrorAction": "SilentlyContinue"
+      }
+    },
+    "StopIdentityAppPool": {
+      "Description": "Stops the app pool if it is running.",
+      "Type": "ManageAppPool",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]",
+        "Action": "Stop",
+        "ErrorAction": "SilentlyContinue"
+      }
+    },
+    "RemoveIdentityWebsite": {
+      "Description": "Removes the IIS website.",
+      "Type": "RemoveWebsite",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]"
+      }
+    },
+    "RemoveIdentityAppPool": {
+      "Description": "Removes the IIS application pool.",
+      "Type": "RemoveAppPool",
+      "Params": {
+        "Name": "[parameter('IdentityServerSiteName')]"
+      }
+    },
+    "RemoveIdentityContent": {
+      "Description": "Removes website content.",
+      "Type": "RemoveItem",
+      "Params": {
+        "Path": "[variable('IdentitySite.PhysicalPath')]",
+        "Recurse": true,
+        "ErrorAction": "SilentlyContinue"
+      }
+    },
+    "RemoveIdentityHostHeader": {
+      "Description": "Removes the website host name.",
+      "Type": "HostHeader",
+      "Params": {
+        "HostName": "[parameter('IdentityServerSiteName')]",
+        "Action": "Remove"
+      }
+    },
+
+    "RemoveDatabases": {
+      "Description": "Removes the databases.",
+      "Type": "RemoveSQLDatabase",
+      "Params": {
+        "ServerName": "[parameter('SqlServer')]",
+        "Username": "[parameter('SqlAdminUser')]",
+        "Password": "[variable('Sql.Secure.Password')]",
+        "DatabaseName": [
+          "[variable('Sql.Database.Core')]",
+          "[variable('Sql.Database.Master')]",
+          "[variable('Sql.Database.Web')]",
+          "[variable('Sql.Database.Forms')]"
+        ]
+      }
+    }
+  }
+}
