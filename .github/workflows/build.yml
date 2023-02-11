@@ -6,7 +6,7 @@ name: Build and Publish
 on:
   push:
     branches:
-      - main
+      - release
 
 jobs:
   build:
@@ -48,3 +48,29 @@ jobs:
         run: |
           git tag ${{ steps.tag_version.outputs.version_tag }}
           git push origin ${{ steps.tag_version.outputs.version_tag }}
+
+      - name: Create ZIP archive
+        run: |
+          zip -r ./agencyq-utilities-sif.zip . -x ".gitignore" ".git/*" ".github/*"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.tag_version.outputs.version_tag }}
+          release_name: Release ${{ steps.tag_version.outputs.version_tag }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./agencyq-utilities-sif.zip
+          asset_name: agencyq-utilities-sif.zip
+          asset_content_type: application/zip
