@@ -46,7 +46,7 @@ jobs:
 
       - name: Create ZIP archive
         run: |
-          zip -r agencyq-utilities-sif.zip . -x ".gitignore, .git/**/* .github/**.*"
+          zip -r agencyq-utilities-sif.zip . -x ".gitignore" -x ".git/*" -x ".github/*"
 
       - name: Upload ZIP archive
         uses: actions/upload-artifact@v2

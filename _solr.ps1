@@ -12,10 +12,12 @@ $solrParams = @{
   SolrVersion     = $global:SOLRVersion
   SolrServiceName = $global:SolrService
   SolrPath        = $global:SolrRoot
+  SolrHostName    = $global:SolrHostName
   PfxPath         = $global:CertPfxPath  
 }
 
 $str = $solrParams | Out-String
+$global:SolrRoot
 
 Write-Host "SOLR Install Params"
 Write-Host "-----------------------------------------------------------------------------------"

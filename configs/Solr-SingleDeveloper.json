@@ -33,6 +33,10 @@
       "Description": "Solr download archive location",
       "DefaultValue": "http://archive.apache.org/dist/lucene/solr"
     },
+    "SolrHostName": {
+      "Type": "String",
+      "Description": "The hostname of the SOLR instance"
+    },
     "SolrCloud": {
       "Type": "Switch",
       "Description": "Start Solr as the SolrCloud development version.",
@@ -170,6 +174,13 @@
         "Exception": "Solr cannot be installed. Check the logs for the reason."
       },
       "Skip": "[not(variable('Test.Solr'))]"
+    },
+    "CreateHostHeader": {
+      "Description": "Sets a hostheader for the website.",
+      "Type": "HostHeader",
+      "Params": {
+        "HostName": "[parameter('SolrHostName')]"
+      }
     },
     "CreateSolrFolder": {
       "Description": "Ensures the Solr install folder is available.",
