@@ -27,6 +27,3 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: agencyq-utilities-sif.zip
-        run: |
-          git tag ${{ steps.tag_version.outputs.version_tag }}
-          git push origin ${{ steps.tag_version.outputs.version_tag }}
