@@ -1,0 +1,60 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set Version
+        uses: paulhatch/semantic-version@v5.0.2
+        id: tag_version
+        with:
+          # The prefix to use to identify tags
+          tag_prefix: "v"
+          # A string which, if present in a git commit, indicates that a change represents a
+          # major (breaking) change, supports regular expressions wrapped with '/'
+          major_pattern: "(MAJOR)"
+          # A string which indicates the flags used by the `major_pattern` regular expression. Supported flags: idgs
+          major_regexp_flags: ""
+          # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
+          minor_pattern: "(MINOR)"
+          # A string which indicates the flags used by the `minor_pattern` regular expression. Supported flags: idgs
+          minor_regexp_flags: ""
+          # A string to determine the format of the version output
+          version_format: "${major}.${minor}.${patch}-${increment}"
+          namespace: agencyq-utilities-sif
+          # If this is set to true, *every* commit will be treated as a new version.
+          bump_each_commit: true
+          # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
+          search_commit_body: false
+          # The output method used to generate list of users, 'csv' or 'json'.
+          user_format_type: "csv"
+
+      - name: Create ZIP archive
+        run: |
+          zip -r agencyq-utilities-sif.zip . -x ".gitignore, .git/**/* .github/**.*"
+
+      - name: Upload ZIP archive
+        uses: actions/upload-artifact@v2
+        with:
+          name: agencyq-utilities-sif.zip
+          path: agencyq-utilities-sif.zip
+
+      - name: Tag Release (vX.Y.Z)
+        run: |
+          git tag ${{ steps.tag_version.outputs.version_tag }}
+          git push origin ${{ steps.tag_version.outputs.version_tag }}
