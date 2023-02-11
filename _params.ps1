@@ -19,9 +19,9 @@ $global:SitecoreContentDeliverySitename = "cd.$global:Prefix.agencyq.dev"
 $global:IdentityServerSiteName = "id.$global:Prefix.agencyq.dev"
 # The Path to the license file
 $global:LicenseFile = "$global:SCInstallRoot\license.xml"
-$global:SolrHostName = "solr.$global:Prefix.agencyq.dev:$global:SOLRPort"
+$global:SolrHostName = "solr.$global:Prefix.agencyq.dev"
 # The URL of the Solr Server
-$global:SolrUrl = "https://$global:SolrHostName:$global:SOLRPort/solr"
+$global:SolrUrl = "https://${global:SolrHostName}:${global:SOLRPort}/solr"
 # The Name of the Solr Service.
 $global:SolrService = "solr-$global:Prefix-$global:SOLRVersion"
 # The Folder that Solr has been installed in.
@@ -58,6 +58,7 @@ Write-Host "SitecoreContentDeliveryPackage:   $global:SitecoreContentDeliveryPac
 Write-Host "IdentityServerPackage:   $global:IdentityServerPackage"
 Write-Host "PasswordRecoveryUrl:   $global:PasswordRecoveryUrl"
 Write-Host "SitecoreIdentityAuthority:   $global:SitecoreIdentityAuthority"
+Write-Host "SolrHostName:   $global:SolrHostName"
 Write-Host "SolrUrl:   $global:SolrUrl"
 Write-Host "SolrRoot:   $global:SolrRoot"
 Write-Host "SolrService:   $global:SolrService"
